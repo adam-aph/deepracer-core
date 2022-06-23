@@ -1,3 +1,4 @@
 local:
     container_root: "/tmp/sagemaker"
+    local_code: True
 
