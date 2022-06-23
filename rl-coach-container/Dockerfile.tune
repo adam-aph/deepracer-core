@@ -22,7 +22,8 @@ WORKDIR /deepracer
 
 # install dependencies
 RUN pip install --no-cache-dir -U awscli ipython pandas "urllib3<1.27,>=1.25.4" "pyyaml==3.13" "python-dateutil==2.8.0" "protobuf==3.20.1"
-RUN pip install rl-coach-container/files/sagemaker-2.96.1.dev0-py2.py3-none-any.whl
+ADD rl-coach-container/files /deepracer/files
+RUN pip install files/sagemaker-2.96.1.dev0-py2.py3-none-any.whl
 
 ADD rl-coach-container/files/common /deepracer/common
 ADD robomaker-container/bundle/sagemaker_rl_agent/lib/python3.6/site-packages/markov /deepracer/markov
