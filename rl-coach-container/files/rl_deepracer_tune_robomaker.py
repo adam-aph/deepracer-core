@@ -141,6 +141,10 @@ print(hyperparameters_ranges)
 
 metric_definitions = RLEstimator.default_metric_definitions(RLToolkit.COACH)
 estimator = RLEstimator(
+    toolkit=RLToolkit.COACH,
+    toolkit_version='0.11.1',
+    framework=RLFramework.TENSORFLOW,
+    image_uri=image_name,
     entry_point="training_worker.py",
     source_dir='markov',
     dependencies=["common/sagemaker_rl","markov"],
