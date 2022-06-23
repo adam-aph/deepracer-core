@@ -18,11 +18,11 @@ RUN mkdir -p /root/.sagemaker /robo/container
 COPY rl-coach-container/files/config.yaml /root/.sagemaker/config.yaml
 
 # add required deepracer directories to the container
-# RUN mkdir -p /deepracer && mkdir -p /deepracer/rl_coach && mkdir -p /deepracer/sagemaker-python-sdk
 WORKDIR /deepracer
 
 # install dependencies
-RUN pip install --no-cache-dir -U "sagemaker<2" awscli ipython pandas "urllib3<1.27,>=1.25.4" "pyyaml==3.13" "python-dateutil==2.8.0" "protobuf==3.20.1"
+RUN pip install --no-cache-dir -U awscli ipython pandas "urllib3<1.27,>=1.25.4" "pyyaml==3.13" "python-dateutil==2.8.0" "protobuf==3.20.1"
+RUN pip install rl-coach-container/files/sagemaker-2.96.1.dev0-py2.py3-none-any.whl
 
 ADD rl-coach-container/files/common /deepracer/common
 ADD robomaker-container/bundle/sagemaker_rl_agent/lib/python3.6/site-packages/markov /deepracer/markov
